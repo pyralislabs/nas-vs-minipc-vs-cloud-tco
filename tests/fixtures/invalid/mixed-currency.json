@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "mixed-currency-test",
+  "label": "Mixed Currency Test",
+  "baseDate": "2026-01-01",
+  "currency": "XYZ",
+  "priceBasis": "constant",
+  "horizonMonths": 36,
+  "materialityThresholdPercent": "10",
+  "scenarios": [
+    {
+      "id": "test-own",
+      "label": "Test Owned",
+      "kind": "owned",
+      "assetType": "nas",
+      "initialCapex": [{ "id": "unit", "label": "Unit", "amount": "800.00" }],
+      "annualEnergyKwh": "240",
+      "electricityRatePerKwh": "0.14",
+      "electricityEscalationRate": "0",
+      "annualMaintenance": "50.00",
+      "maintenanceEscalationRate": "0"
+    },
+    {
+      "id": "test-cloud",
+      "label": "Test Cloud",
+      "kind": "cloud",
+      "monthlyRecurring": [
+        {
+          "id": "compute",
+          "label": "Compute",
+          "monthlyAmount": "50.00",
+          "annualEscalationRate": "0"
+        }
+      ],
+      "monthlyEgressGb": "50",
+      "egressRatePerGb": "0.09",
+      "egressEscalationRate": "0"
+    }
+  ]
+}

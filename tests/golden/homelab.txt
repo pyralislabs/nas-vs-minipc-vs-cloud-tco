@@ -1,0 +1,24 @@
+Comparison: Homelab NAS vs Generic Cloud Storage (Example)
+ID: homelab-nas-vs-cloud
+Horizon: 60 months
+Currency: USD
+Price basis: constant
+
+--- DIY NAS (Example) (owned) ---
+  Gross TCO: $1,548.00
+  Net TCO: $1,448.00
+  Salvage: $100.00
+
+--- Generic Cloud Storage (Example) (cloud) ---
+  Gross TCO: $1,768.80
+  Net TCO: $1,768.80
+
+--- Break-Even Analysis ---
+  my-nas vs cloud-storage:
+    Durable break-even: month 48
+    Crossover months: 48
+
+--- Recommendation ---
+  Under these cost assumptions, owning is lower cost over the selected horizon.
+  This is a cost-only planning estimate. Validate workload equivalence, reliability, support, security, performance, and pricing before deciding.
+

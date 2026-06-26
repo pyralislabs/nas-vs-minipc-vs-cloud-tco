@@ -1,0 +1,7 @@
+dist/
+coverage/
+node_modules/
+.wrangler/
+src/schema/validator.precompiled.mjs
+*.tgz
+tests/golden/*.txt

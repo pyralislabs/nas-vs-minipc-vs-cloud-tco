@@ -1,0 +1,36 @@
+name: Example Scenario Request
+description: Propose a new fictional example scenario
+title: "[Scenario]: "
+labels: ["scenario"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose an example scenario that helps users understand the tool's
+        capabilities. Examples are fictional, not current market prices.
+  - type: input
+    id: title
+    attributes:
+      label: Scenario title
+      description: Short descriptive title
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What does this scenario compare?
+    validations:
+      required: true
+  - type: checkboxes
+    id: includes
+    attributes:
+      label: Required elements
+      options:
+        - label: One currency and base date
+        - label: Identified cost lines and assumptions
+        - label: Annual energy as input (not wattage)
+        - label: Maintenance and cloud egress
+        - label: All six sensitivity case types
+        - label: No provider/product endorsements or affiliate URLs
+        - label: Values labeled as examples

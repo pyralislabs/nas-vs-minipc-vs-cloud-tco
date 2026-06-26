@@ -1,0 +1,642 @@
+[
+  {
+    "id": "lower-energy",
+    "label": "Lower annual energy use (120 kWh)",
+    "comparison": {
+      "schemaVersion": 1,
+      "id": "homelab-nas-vs-cloud",
+      "label": "Homelab NAS vs Cloud — lower energy",
+      "baseDate": "2026-01-01",
+      "currency": "USD",
+      "priceBasis": "constant",
+      "horizonMonths": 60,
+      "materialityThresholdPercent": "10",
+      "scenarios": [
+        {
+          "id": "my-nas",
+          "label": "DIY NAS (Example) — 120 kWh",
+          "kind": "owned",
+          "assetType": "nas",
+          "initialCapex": [
+            { "id": "nas-unit", "label": "NAS enclosure + PSU", "amount": "400.00" },
+            { "id": "nas-drives", "label": "4× 4TB HDD", "amount": "320.00" },
+            { "id": "nas-ram", "label": "16 GB ECC RAM", "amount": "80.00" },
+            { "id": "nas-setup", "label": "Shipping and setup", "amount": "30.00" }
+          ],
+          "annualEnergyKwh": "120",
+          "electricityRatePerKwh": "0.14",
+          "electricityEscalationRate": "0",
+          "annualMaintenance": "50.00",
+          "maintenanceEscalationRate": "0",
+          "otherMonthlyRecurring": [
+            {
+              "id": "nas-backup-license",
+              "label": "Backup software license",
+              "monthlyAmount": "5.00",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "salvageValue": "100.00"
+        },
+        {
+          "id": "cloud-storage",
+          "label": "Generic Cloud Storage (Example)",
+          "kind": "cloud",
+          "monthlyRecurring": [
+            {
+              "id": "cloud-storage",
+              "label": "1 TB cloud storage",
+              "monthlyAmount": "9.99",
+              "annualEscalationRate": "0"
+            },
+            {
+              "id": "cloud-compute",
+              "label": "Basic compute instance",
+              "monthlyAmount": "14.99",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "monthlyEgressGb": "50",
+          "egressRatePerGb": "0.09",
+          "egressEscalationRate": "0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "higher-energy",
+    "label": "Higher annual energy use (480 kWh)",
+    "comparison": {
+      "schemaVersion": 1,
+      "id": "homelab-nas-vs-cloud",
+      "label": "Homelab NAS vs Cloud — higher energy",
+      "baseDate": "2026-01-01",
+      "currency": "USD",
+      "priceBasis": "constant",
+      "horizonMonths": 60,
+      "materialityThresholdPercent": "10",
+      "scenarios": [
+        {
+          "id": "my-nas",
+          "label": "DIY NAS (Example) — 480 kWh",
+          "kind": "owned",
+          "assetType": "nas",
+          "initialCapex": [
+            { "id": "nas-unit", "label": "NAS enclosure + PSU", "amount": "400.00" },
+            { "id": "nas-drives", "label": "4× 4TB HDD", "amount": "320.00" },
+            { "id": "nas-ram", "label": "16 GB ECC RAM", "amount": "80.00" },
+            { "id": "nas-setup", "label": "Shipping and setup", "amount": "30.00" }
+          ],
+          "annualEnergyKwh": "480",
+          "electricityRatePerKwh": "0.14",
+          "electricityEscalationRate": "0",
+          "annualMaintenance": "50.00",
+          "maintenanceEscalationRate": "0",
+          "otherMonthlyRecurring": [
+            {
+              "id": "nas-backup-license",
+              "label": "Backup software license",
+              "monthlyAmount": "5.00",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "salvageValue": "100.00"
+        },
+        {
+          "id": "cloud-storage",
+          "label": "Generic Cloud Storage (Example)",
+          "kind": "cloud",
+          "monthlyRecurring": [
+            {
+              "id": "cloud-storage",
+              "label": "1 TB cloud storage",
+              "monthlyAmount": "9.99",
+              "annualEscalationRate": "0"
+            },
+            {
+              "id": "cloud-compute",
+              "label": "Basic compute instance",
+              "monthlyAmount": "14.99",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "monthlyEgressGb": "50",
+          "egressRatePerGb": "0.09",
+          "egressEscalationRate": "0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "lower-electricity",
+    "label": "Lower electricity rate ($0.07/kWh)",
+    "comparison": {
+      "schemaVersion": 1,
+      "id": "homelab-nas-vs-cloud",
+      "label": "Homelab NAS vs Cloud — lower electricity",
+      "baseDate": "2026-01-01",
+      "currency": "USD",
+      "priceBasis": "constant",
+      "horizonMonths": 60,
+      "materialityThresholdPercent": "10",
+      "scenarios": [
+        {
+          "id": "my-nas",
+          "label": "DIY NAS (Example) — $0.07/kWh",
+          "kind": "owned",
+          "assetType": "nas",
+          "initialCapex": [
+            { "id": "nas-unit", "label": "NAS enclosure + PSU", "amount": "400.00" },
+            { "id": "nas-drives", "label": "4× 4TB HDD", "amount": "320.00" },
+            { "id": "nas-ram", "label": "16 GB ECC RAM", "amount": "80.00" },
+            { "id": "nas-setup", "label": "Shipping and setup", "amount": "30.00" }
+          ],
+          "annualEnergyKwh": "240",
+          "electricityRatePerKwh": "0.07",
+          "electricityEscalationRate": "0",
+          "annualMaintenance": "50.00",
+          "maintenanceEscalationRate": "0",
+          "otherMonthlyRecurring": [
+            {
+              "id": "nas-backup-license",
+              "label": "Backup software license",
+              "monthlyAmount": "5.00",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "salvageValue": "100.00"
+        },
+        {
+          "id": "cloud-storage",
+          "label": "Generic Cloud Storage (Example)",
+          "kind": "cloud",
+          "monthlyRecurring": [
+            {
+              "id": "cloud-storage",
+              "label": "1 TB cloud storage",
+              "monthlyAmount": "9.99",
+              "annualEscalationRate": "0"
+            },
+            {
+              "id": "cloud-compute",
+              "label": "Basic compute instance",
+              "monthlyAmount": "14.99",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "monthlyEgressGb": "50",
+          "egressRatePerGb": "0.09",
+          "egressEscalationRate": "0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "higher-electricity",
+    "label": "Higher electricity rate ($0.28/kWh)",
+    "comparison": {
+      "schemaVersion": 1,
+      "id": "homelab-nas-vs-cloud",
+      "label": "Homelab NAS vs Cloud — higher electricity",
+      "baseDate": "2026-01-01",
+      "currency": "USD",
+      "priceBasis": "constant",
+      "horizonMonths": 60,
+      "materialityThresholdPercent": "10",
+      "scenarios": [
+        {
+          "id": "my-nas",
+          "label": "DIY NAS (Example) — $0.28/kWh",
+          "kind": "owned",
+          "assetType": "nas",
+          "initialCapex": [
+            { "id": "nas-unit", "label": "NAS enclosure + PSU", "amount": "400.00" },
+            { "id": "nas-drives", "label": "4× 4TB HDD", "amount": "320.00" },
+            { "id": "nas-ram", "label": "16 GB ECC RAM", "amount": "80.00" },
+            { "id": "nas-setup", "label": "Shipping and setup", "amount": "30.00" }
+          ],
+          "annualEnergyKwh": "240",
+          "electricityRatePerKwh": "0.28",
+          "electricityEscalationRate": "0",
+          "annualMaintenance": "50.00",
+          "maintenanceEscalationRate": "0",
+          "otherMonthlyRecurring": [
+            {
+              "id": "nas-backup-license",
+              "label": "Backup software license",
+              "monthlyAmount": "5.00",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "salvageValue": "100.00"
+        },
+        {
+          "id": "cloud-storage",
+          "label": "Generic Cloud Storage (Example)",
+          "kind": "cloud",
+          "monthlyRecurring": [
+            {
+              "id": "cloud-storage",
+              "label": "1 TB cloud storage",
+              "monthlyAmount": "9.99",
+              "annualEscalationRate": "0"
+            },
+            {
+              "id": "cloud-compute",
+              "label": "Basic compute instance",
+              "monthlyAmount": "14.99",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "monthlyEgressGb": "50",
+          "egressRatePerGb": "0.09",
+          "egressEscalationRate": "0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "lower-maintenance",
+    "label": "Lower annual maintenance ($25/year)",
+    "comparison": {
+      "schemaVersion": 1,
+      "id": "homelab-nas-vs-cloud",
+      "label": "Homelab NAS vs Cloud — lower maintenance",
+      "baseDate": "2026-01-01",
+      "currency": "USD",
+      "priceBasis": "constant",
+      "horizonMonths": 60,
+      "materialityThresholdPercent": "10",
+      "scenarios": [
+        {
+          "id": "my-nas",
+          "label": "DIY NAS (Example) — $25/year",
+          "kind": "owned",
+          "assetType": "nas",
+          "initialCapex": [
+            { "id": "nas-unit", "label": "NAS enclosure + PSU", "amount": "400.00" },
+            { "id": "nas-drives", "label": "4× 4TB HDD", "amount": "320.00" },
+            { "id": "nas-ram", "label": "16 GB ECC RAM", "amount": "80.00" },
+            { "id": "nas-setup", "label": "Shipping and setup", "amount": "30.00" }
+          ],
+          "annualEnergyKwh": "240",
+          "electricityRatePerKwh": "0.14",
+          "electricityEscalationRate": "0",
+          "annualMaintenance": "25.00",
+          "maintenanceEscalationRate": "0",
+          "otherMonthlyRecurring": [
+            {
+              "id": "nas-backup-license",
+              "label": "Backup software license",
+              "monthlyAmount": "5.00",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "salvageValue": "100.00"
+        },
+        {
+          "id": "cloud-storage",
+          "label": "Generic Cloud Storage (Example)",
+          "kind": "cloud",
+          "monthlyRecurring": [
+            {
+              "id": "cloud-storage",
+              "label": "1 TB cloud storage",
+              "monthlyAmount": "9.99",
+              "annualEscalationRate": "0"
+            },
+            {
+              "id": "cloud-compute",
+              "label": "Basic compute instance",
+              "monthlyAmount": "14.99",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "monthlyEgressGb": "50",
+          "egressRatePerGb": "0.09",
+          "egressEscalationRate": "0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "higher-maintenance",
+    "label": "Higher annual maintenance ($100/year)",
+    "comparison": {
+      "schemaVersion": 1,
+      "id": "homelab-nas-vs-cloud",
+      "label": "Homelab NAS vs Cloud — higher maintenance",
+      "baseDate": "2026-01-01",
+      "currency": "USD",
+      "priceBasis": "constant",
+      "horizonMonths": 60,
+      "materialityThresholdPercent": "10",
+      "scenarios": [
+        {
+          "id": "my-nas",
+          "label": "DIY NAS (Example) — $100/year",
+          "kind": "owned",
+          "assetType": "nas",
+          "initialCapex": [
+            { "id": "nas-unit", "label": "NAS enclosure + PSU", "amount": "400.00" },
+            { "id": "nas-drives", "label": "4× 4TB HDD", "amount": "320.00" },
+            { "id": "nas-ram", "label": "16 GB ECC RAM", "amount": "80.00" },
+            { "id": "nas-setup", "label": "Shipping and setup", "amount": "30.00" }
+          ],
+          "annualEnergyKwh": "240",
+          "electricityRatePerKwh": "0.14",
+          "electricityEscalationRate": "0",
+          "annualMaintenance": "100.00",
+          "maintenanceEscalationRate": "0",
+          "otherMonthlyRecurring": [
+            {
+              "id": "nas-backup-license",
+              "label": "Backup software license",
+              "monthlyAmount": "5.00",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "salvageValue": "100.00"
+        },
+        {
+          "id": "cloud-storage",
+          "label": "Generic Cloud Storage (Example)",
+          "kind": "cloud",
+          "monthlyRecurring": [
+            {
+              "id": "cloud-storage",
+              "label": "1 TB cloud storage",
+              "monthlyAmount": "9.99",
+              "annualEscalationRate": "0"
+            },
+            {
+              "id": "cloud-compute",
+              "label": "Basic compute instance",
+              "monthlyAmount": "14.99",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "monthlyEgressGb": "50",
+          "egressRatePerGb": "0.09",
+          "egressEscalationRate": "0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "lower-cloud-recurring",
+    "label": "Lower cloud recurring cost",
+    "comparison": {
+      "schemaVersion": 1,
+      "id": "homelab-nas-vs-cloud",
+      "label": "Homelab NAS vs Cloud — lower cloud recurring",
+      "baseDate": "2026-01-01",
+      "currency": "USD",
+      "priceBasis": "constant",
+      "horizonMonths": 60,
+      "materialityThresholdPercent": "10",
+      "scenarios": [
+        {
+          "id": "my-nas",
+          "label": "DIY NAS (Example)",
+          "kind": "owned",
+          "assetType": "nas",
+          "initialCapex": [
+            { "id": "nas-unit", "label": "NAS enclosure + PSU", "amount": "400.00" },
+            { "id": "nas-drives", "label": "4× 4TB HDD", "amount": "320.00" },
+            { "id": "nas-ram", "label": "16 GB ECC RAM", "amount": "80.00" },
+            { "id": "nas-setup", "label": "Shipping and setup", "amount": "30.00" }
+          ],
+          "annualEnergyKwh": "240",
+          "electricityRatePerKwh": "0.14",
+          "electricityEscalationRate": "0",
+          "annualMaintenance": "50.00",
+          "maintenanceEscalationRate": "0",
+          "otherMonthlyRecurring": [
+            {
+              "id": "nas-backup-license",
+              "label": "Backup software license",
+              "monthlyAmount": "5.00",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "salvageValue": "100.00"
+        },
+        {
+          "id": "cloud-storage",
+          "label": "Generic Cloud Storage (Example) — lower pricing",
+          "kind": "cloud",
+          "monthlyRecurring": [
+            {
+              "id": "cloud-storage",
+              "label": "1 TB cloud storage",
+              "monthlyAmount": "6.99",
+              "annualEscalationRate": "0"
+            },
+            {
+              "id": "cloud-compute",
+              "label": "Basic compute instance",
+              "monthlyAmount": "9.99",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "monthlyEgressGb": "50",
+          "egressRatePerGb": "0.09",
+          "egressEscalationRate": "0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "higher-cloud-recurring",
+    "label": "Higher cloud recurring cost",
+    "comparison": {
+      "schemaVersion": 1,
+      "id": "homelab-nas-vs-cloud",
+      "label": "Homelab NAS vs Cloud — higher cloud recurring",
+      "baseDate": "2026-01-01",
+      "currency": "USD",
+      "priceBasis": "constant",
+      "horizonMonths": 60,
+      "materialityThresholdPercent": "10",
+      "scenarios": [
+        {
+          "id": "my-nas",
+          "label": "DIY NAS (Example)",
+          "kind": "owned",
+          "assetType": "nas",
+          "initialCapex": [
+            { "id": "nas-unit", "label": "NAS enclosure + PSU", "amount": "400.00" },
+            { "id": "nas-drives", "label": "4× 4TB HDD", "amount": "320.00" },
+            { "id": "nas-ram", "label": "16 GB ECC RAM", "amount": "80.00" },
+            { "id": "nas-setup", "label": "Shipping and setup", "amount": "30.00" }
+          ],
+          "annualEnergyKwh": "240",
+          "electricityRatePerKwh": "0.14",
+          "electricityEscalationRate": "0",
+          "annualMaintenance": "50.00",
+          "maintenanceEscalationRate": "0",
+          "otherMonthlyRecurring": [
+            {
+              "id": "nas-backup-license",
+              "label": "Backup software license",
+              "monthlyAmount": "5.00",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "salvageValue": "100.00"
+        },
+        {
+          "id": "cloud-storage",
+          "label": "Generic Cloud Storage (Example) — higher pricing",
+          "kind": "cloud",
+          "monthlyRecurring": [
+            {
+              "id": "cloud-storage",
+              "label": "1 TB cloud storage",
+              "monthlyAmount": "14.99",
+              "annualEscalationRate": "0"
+            },
+            {
+              "id": "cloud-compute",
+              "label": "Basic compute instance",
+              "monthlyAmount": "24.99",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "monthlyEgressGb": "50",
+          "egressRatePerGb": "0.09",
+          "egressEscalationRate": "0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "lower-egress",
+    "label": "Lower egress volume (25 GB)",
+    "comparison": {
+      "schemaVersion": 1,
+      "id": "homelab-nas-vs-cloud",
+      "label": "Homelab NAS vs Cloud — lower egress",
+      "baseDate": "2026-01-01",
+      "currency": "USD",
+      "priceBasis": "constant",
+      "horizonMonths": 60,
+      "materialityThresholdPercent": "10",
+      "scenarios": [
+        {
+          "id": "my-nas",
+          "label": "DIY NAS (Example)",
+          "kind": "owned",
+          "assetType": "nas",
+          "initialCapex": [
+            { "id": "nas-unit", "label": "NAS enclosure + PSU", "amount": "400.00" },
+            { "id": "nas-drives", "label": "4× 4TB HDD", "amount": "320.00" },
+            { "id": "nas-ram", "label": "16 GB ECC RAM", "amount": "80.00" },
+            { "id": "nas-setup", "label": "Shipping and setup", "amount": "30.00" }
+          ],
+          "annualEnergyKwh": "240",
+          "electricityRatePerKwh": "0.14",
+          "electricityEscalationRate": "0",
+          "annualMaintenance": "50.00",
+          "maintenanceEscalationRate": "0",
+          "otherMonthlyRecurring": [
+            {
+              "id": "nas-backup-license",
+              "label": "Backup software license",
+              "monthlyAmount": "5.00",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "salvageValue": "100.00"
+        },
+        {
+          "id": "cloud-storage",
+          "label": "Generic Cloud Storage (Example) — 25 GB egress",
+          "kind": "cloud",
+          "monthlyRecurring": [
+            {
+              "id": "cloud-storage",
+              "label": "1 TB cloud storage",
+              "monthlyAmount": "9.99",
+              "annualEscalationRate": "0"
+            },
+            {
+              "id": "cloud-compute",
+              "label": "Basic compute instance",
+              "monthlyAmount": "14.99",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "monthlyEgressGb": "25",
+          "egressRatePerGb": "0.09",
+          "egressEscalationRate": "0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "higher-egress",
+    "label": "Higher egress volume (200 GB)",
+    "comparison": {
+      "schemaVersion": 1,
+      "id": "homelab-nas-vs-cloud",
+      "label": "Homelab NAS vs Cloud — higher egress",
+      "baseDate": "2026-01-01",
+      "currency": "USD",
+      "priceBasis": "constant",
+      "horizonMonths": 60,
+      "materialityThresholdPercent": "10",
+      "scenarios": [
+        {
+          "id": "my-nas",
+          "label": "DIY NAS (Example)",
+          "kind": "owned",
+          "assetType": "nas",
+          "initialCapex": [
+            { "id": "nas-unit", "label": "NAS enclosure + PSU", "amount": "400.00" },
+            { "id": "nas-drives", "label": "4× 4TB HDD", "amount": "320.00" },
+            { "id": "nas-ram", "label": "16 GB ECC RAM", "amount": "80.00" },
+            { "id": "nas-setup", "label": "Shipping and setup", "amount": "30.00" }
+          ],
+          "annualEnergyKwh": "240",
+          "electricityRatePerKwh": "0.14",
+          "electricityEscalationRate": "0",
+          "annualMaintenance": "50.00",
+          "maintenanceEscalationRate": "0",
+          "otherMonthlyRecurring": [
+            {
+              "id": "nas-backup-license",
+              "label": "Backup software license",
+              "monthlyAmount": "5.00",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "salvageValue": "100.00"
+        },
+        {
+          "id": "cloud-storage",
+          "label": "Generic Cloud Storage (Example) — 200 GB egress",
+          "kind": "cloud",
+          "monthlyRecurring": [
+            {
+              "id": "cloud-storage",
+              "label": "1 TB cloud storage",
+              "monthlyAmount": "9.99",
+              "annualEscalationRate": "0"
+            },
+            {
+              "id": "cloud-compute",
+              "label": "Basic compute instance",
+              "monthlyAmount": "14.99",
+              "annualEscalationRate": "0"
+            }
+          ],
+          "monthlyEgressGb": "200",
+          "egressRatePerGb": "0.09",
+          "egressEscalationRate": "0"
+        }
+      ]
+    }
+  }
+]

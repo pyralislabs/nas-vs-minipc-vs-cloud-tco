@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "too-few",
+  "label": "Too Few Scenarios",
+  "baseDate": "2026-01-01",
+  "currency": "USD",
+  "priceBasis": "constant",
+  "horizonMonths": 24,
+  "materialityThresholdPercent": "10",
+  "scenarios": [
+    {
+      "id": "only-owned",
+      "label": "Only Owned",
+      "kind": "owned",
+      "assetType": "nas",
+      "initialCapex": [{ "id": "unit", "label": "Unit", "amount": "500.00" }],
+      "annualEnergyKwh": "240",
+      "electricityRatePerKwh": "0.14",
+      "electricityEscalationRate": "0",
+      "annualMaintenance": "50.00",
+      "maintenanceEscalationRate": "0"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "local-ai-vs-cloud-gpu",
+  "label": "Local AI Box vs Cloud GPU Service (Example)",
+  "baseDate": "2026-01-01",
+  "currency": "USD",
+  "priceBasis": "constant",
+  "horizonMonths": 36,
+  "materialityThresholdPercent": "10",
+  "scenarios": [
+    {
+      "id": "local-ai-box",
+      "label": "Local AI Box (Example)",
+      "kind": "owned",
+      "assetType": "mini-pc",
+      "initialCapex": [
+        { "id": "ai-box", "label": "Mini PC with GPU eGPU", "amount": "1500.00" },
+        { "id": "ai-ram", "label": "64 GB RAM upgrade", "amount": "200.00" },
+        { "id": "ai-storage", "label": "2 TB NVMe SSD", "amount": "180.00" }
+      ],
+      "annualEnergyKwh": "500",
+      "electricityRatePerKwh": "0.14",
+      "electricityEscalationRate": "0",
+      "annualMaintenance": "75.00",
+      "maintenanceEscalationRate": "0",
+      "salvageValue": "400.00",
+      "notes": [
+        "Example values only — not current market prices.",
+        "Annual energy estimated at 57W average draw."
+      ]
+    },
+    {
+      "id": "cloud-gpu",
+      "label": "Cloud GPU Instance (Example)",
+      "kind": "cloud",
+      "monthlyRecurring": [
+        {
+          "id": "gpu-instance",
+          "label": "GPU compute (8h/day average)",
+          "monthlyAmount": "200.00",
+          "annualEscalationRate": "0"
+        },
+        {
+          "id": "cloud-storage",
+          "label": "Block storage 500 GB",
+          "monthlyAmount": "25.00",
+          "annualEscalationRate": "0"
+        }
+      ],
+      "monthlyEgressGb": "100",
+      "egressRatePerGb": "0.09",
+      "egressEscalationRate": "0",
+      "notes": [
+        "Example values only — not current market prices.",
+        "GPU instance assumes 8 hours of usage per day on average."
+      ]
+    }
+  ]
+}

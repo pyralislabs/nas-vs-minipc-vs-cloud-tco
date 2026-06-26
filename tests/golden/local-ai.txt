@@ -1,0 +1,24 @@
+Comparison: Local AI Box vs Cloud GPU Service (Example)
+ID: local-ai-vs-cloud-gpu
+Horizon: 36 months
+Currency: USD
+Price basis: constant
+
+--- Local AI Box (Example) (owned) ---
+  Gross TCO: $2,315.00
+  Net TCO: $1,915.00
+  Salvage: $400.00
+
+--- Cloud GPU Instance (Example) (cloud) ---
+  Gross TCO: $8,424.00
+  Net TCO: $8,424.00
+
+--- Break-Even Analysis ---
+  local-ai-box vs cloud-gpu:
+    Durable break-even: month 9
+    Crossover months: 9
+
+--- Recommendation ---
+  Under these cost assumptions, owning is lower cost over the selected horizon.
+  This is a cost-only planning estimate. Validate workload equivalence, reliability, support, security, performance, and pricing before deciding.
+

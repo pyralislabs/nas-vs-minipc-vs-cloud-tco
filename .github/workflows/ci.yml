@@ -1,0 +1,98 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: read
+  checks: write
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        node-version: ["22", "latest"]
+
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Format check
+        run: pnpm format:check
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Core-boundary grep guard
+        run: |
+          if grep -rniE '\b(watt|TDP|PSU|idle|utilization|load profile|duty cycle)\b' src/core/; then
+            echo "❌ Core-boundary guard: forbidden power-estimation terms found in src/core/"
+            exit 1
+          fi
+          echo "✅ Core-boundary guard passed"
+
+      - name: new Decimal() boundary guard
+        run: |
+          FILES=$(grep -rn 'new Decimal(' src/ --include='*.ts' | grep -v 'src/core/money.ts' | grep -v 'node_modules' || true)
+          if [ -n "$FILES" ]; then
+            echo "❌ new Decimal() used outside src/core/money.ts:"
+            echo "$FILES"
+            exit 1
+          fi
+          echo "✅ new Decimal() boundary guard passed"
+
+      - name: Phrase guard
+        run: |
+          FORBIDDEN_PHRASES='you should buy|you should rent|best|guaranteed savings|always buy|always rent'
+          FAILED=false
+
+          # Check golden human output
+          for f in tests/golden/*.txt; do
+            if [ -f "$f" ] && grep -iE "$FORBIDDEN_PHRASES" "$f"; then
+              echo "❌ Forbidden phrase found in $f"
+              FAILED=true
+            fi
+          done
+
+          if [ "$FAILED" = true ]; then
+            exit 1
+          fi
+          echo "✅ Phrase guard passed"
+
+      - name: Type check
+        run: pnpm typecheck
+
+      - name: Test with coverage
+        run: pnpm test:coverage
+
+      - name: Build
+        run: pnpm build
+
+      - name: Pack dry run
+        run: pnpm pack --dry-run
+
+      - name: Packed-package smoke test
+        run: |
+          pnpm pack
+          PACKAGE=$(ls *.tgz)
+          echo "Testing packed package: $PACKAGE"
+          tar -tzf "$PACKAGE" | head -20
+          rm "$PACKAGE"
+
+      - name: Widget accessibility check
+        run: pnpm vitest run tests/widget/
+
+      - name: Dependency audit
+        run: pnpm audit --audit-level=high

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "id": "homelab-nas-vs-cloud",
+  "label": "Homelab NAS vs Generic Cloud Storage (Example)",
+  "baseDate": "2026-01-01",
+  "currency": "USD",
+  "priceBasis": "constant",
+  "horizonMonths": 60,
+  "materialityThresholdPercent": "10",
+  "scenarios": [
+    {
+      "id": "my-nas",
+      "label": "DIY NAS (Example)",
+      "kind": "owned",
+      "assetType": "nas",
+      "initialCapex": [
+        { "id": "nas-unit", "label": "NAS enclosure + PSU", "amount": "400.00" },
+        { "id": "nas-drives", "label": "4× 4TB HDD", "amount": "320.00" },
+        { "id": "nas-ram", "label": "16 GB ECC RAM", "amount": "80.00" },
+        { "id": "nas-setup", "label": "Shipping and setup", "amount": "30.00" }
+      ],
+      "annualEnergyKwh": "240",
+      "electricityRatePerKwh": "0.14",
+      "electricityEscalationRate": "0",
+      "annualMaintenance": "50.00",
+      "maintenanceEscalationRate": "0",
+      "otherMonthlyRecurring": [
+        {
+          "id": "nas-backup-license",
+          "label": "Backup software license",
+          "monthlyAmount": "5.00",
+          "annualEscalationRate": "0"
+        }
+      ],
+      "salvageValue": "100.00",
+      "notes": [
+        "Example values only — not current market prices.",
+        "Annual energy estimated at 20W average draw."
+      ]
+    },
+    {
+      "id": "cloud-storage",
+      "label": "Generic Cloud Storage (Example)",
+      "kind": "cloud",
+      "monthlyRecurring": [
+        {
+          "id": "cloud-storage",
+          "label": "1 TB cloud storage",
+          "monthlyAmount": "9.99",
+          "annualEscalationRate": "0"
+        },
+        {
+          "id": "cloud-compute",
+          "label": "Basic compute instance",
+          "monthlyAmount": "14.99",
+          "annualEscalationRate": "0"
+        }
+      ],
+      "monthlyEgressGb": "50",
+      "egressRatePerGb": "0.09",
+      "egressEscalationRate": "0",
+      "notes": [
+        "Example values only — not current market prices.",
+        "Egress at $0.09/GB for first 50 GB."
+      ]
+    }
+  ]
+}

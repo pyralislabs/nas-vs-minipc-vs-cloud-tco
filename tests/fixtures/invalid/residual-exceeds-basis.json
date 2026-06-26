@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "high-residual",
+  "label": "Residual Exceeds Basis",
+  "baseDate": "2026-01-01",
+  "currency": "USD",
+  "priceBasis": "constant",
+  "horizonMonths": 24,
+  "materialityThresholdPercent": "10",
+  "scenarios": [
+    {
+      "id": "owned-nas",
+      "label": "Owned NAS",
+      "kind": "owned",
+      "assetType": "nas",
+      "initialCapex": [{ "id": "unit", "label": "Unit", "amount": "500.00" }],
+      "annualEnergyKwh": "240",
+      "electricityRatePerKwh": "0.14",
+      "electricityEscalationRate": "0",
+      "annualMaintenance": "50.00",
+      "maintenanceEscalationRate": "0",
+      "depreciation": {
+        "depreciableCapitalIds": ["unit"],
+        "usefulLifeMonths": 36,
+        "residualValue": "99999.99"
+      }
+    },
+    {
+      "id": "cloud-svc",
+      "label": "Cloud Svc",
+      "kind": "cloud",
+      "monthlyRecurring": [
+        {
+          "id": "compute",
+          "label": "Compute",
+          "monthlyAmount": "50.00",
+          "annualEscalationRate": "0"
+        }
+      ],
+      "monthlyEgressGb": "10",
+      "egressRatePerGb": "0.09",
+      "egressEscalationRate": "0"
+    }
+  ]
+}
