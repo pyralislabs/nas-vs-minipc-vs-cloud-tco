@@ -1,5 +1,12 @@
 version: 2
 updates:
+  # The `npm` ecosystem here really means "use pnpm against pnpm-lock.yaml"
+  # because the repo's packageManager field pins pnpm@10.8.0. Dependabot's pnpm
+  # runs inside its Docker image are configured with a fallback registry of
+  # `https://npm.pkg.github.com`, which only mirrors stale DefinitelyTyped
+  # releases (capped at @types/node@17.0.18). The repo's `.npmrc` pins the
+  # registry to `https://registry.npmjs.org/` so peer-dependency resolution
+  # (e.g. jsdom → @types/node) finds the latest @types/node there.
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -15,6 +22,11 @@ updates:
           - "vitest"
           - "vite"
           - "wrangler"
+      runtime:
+        patterns:
+          - "decimal.js"
+          - "ajv"
+          - "commander"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
