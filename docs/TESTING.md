@@ -246,7 +246,7 @@ pnpm lint
 pnpm typecheck
 pnpm test:coverage
 pnpm build
-pnpm pack --dry-run
+pnpm pack
 ```
 
 CI also runs packed-package smoke, widget accessibility/bundle checks (CSP header, axe rule

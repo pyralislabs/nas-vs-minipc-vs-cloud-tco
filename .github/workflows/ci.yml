@@ -80,13 +80,10 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Pack dry run
-        run: pnpm pack --dry-run
-
       - name: Packed-package smoke test
         run: |
           pnpm pack
-          PACKAGE=$(ls *.tgz)
+          PACKAGE=$(ls *.tgz | head -1)
           echo "Testing packed package: $PACKAGE"
           tar -tzf "$PACKAGE" | head -20
           rm "$PACKAGE"

@@ -15,7 +15,7 @@ pnpm lint
 pnpm typecheck
 pnpm test:coverage
 pnpm build
-pnpm pack --dry-run
+pnpm pack
 ```
 
 ## Pull Request Process

@@ -4,4 +4,7 @@ node_modules/
 .wrangler/
 src/schema/validator.precompiled.mjs
 *.tgz
+pnpm-lock.yaml
+.pnpm-store/
+pnpm-store/
 tests/golden/*.txt
